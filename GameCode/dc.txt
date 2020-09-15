@@ -1,0 +1,133 @@
+start___text:Dimecres 13 de Maig del 2069.___text:Tretze dies després de l'apagada mundial tecnològica provocada per part de la unió de hackers ANONYMOUS, segons la premsa, tot el planeta ha estat treballant per recuperar la normalitat. Dies després de l'apagada, vas estar indegant en trobar-ne els culpables. Formes part d'un grup secret de hackers de barret blanc que està investigant el cas. Mentres t'apropaves als culpables, et van trobar i et van sedar. T'han segrestat i t'han deixat en una de les seves torres secretes de control. Pensaven que estaves mort després de la pallissa que et va donar el cap. Però no, segueixes viu. Tots han fugit de la torre, però han programat la seva autodestrucció per eliminar qualsevol rastre de la seva activitat en el seu servidor central. Tens 20 minuts per sortir-ne i desemmascarar als culpables.___image:Extra/logo2.jpg___text:Benvingut a 'THE DESTROYED TOWER'. Pulsa Desperta!!
+
+Desperta___text:T’aixeques amb un gran mal de cap en una habitació que es troba en ruïnes. Tens els records borrosos i no saps com has arribat fins aquí. Mires al teu voltant i trobes una motxilla; una porta; una finestra i mobiliari trencat. Agafes la motxilla. Què vols fer?
+
+Anar a la porta - Hab1___text:Probes d'obrir la porta però no pots. Mires el pom i no estan trencats. Podria ser que estigués tancada amb clau. "Ajuda; Buscaria una clau ..."
+
+Anar a la finestra - Hab1___text:T'acostes a la finestra lentament mirant si hi ha algú. Què vols fer?
+
+Mirar per la finestra___text:Treus el cap lentament i no veus res extrany; excepte un flash de llum que t'enlluerna en un cantonada del balcó. Penses; podria ser la clau! Què vols fer?
+
+Sortir al balco___text:Surts al balcó i veus que per l'alçada; et trobes al segon pis d'un edifici i aquest té 4 plantes. Et torna a enlluernar l'objecte de la cantonada i escoltes un CRACK!! Què fem!!??
+
+Mirar per la finestra2___text:Treus el cap lentament per la finestra; pensant... "si ja he sortit abans! perquè tanta precaució?"
+
+Sortir al balco2___text:Surts al balcó i veus que per l'alçada; et trobes al segon pis d'un edifici i aquest té 4 plantes. Què fem??
+
+Saltar cap a l'habitacio___text:Després de saltar cap a l'habitació mires cap al balcó i encara no s'ha trencat. "Què ha sigut el CRACK que he escoltat?". Què vols fer?
+
+Agafar l'objecte brillant i saltar cap a l'habitacio___text:Després de saltar cap a l'habitació mires l'objecte brillant que has agafat i efectivament és una clau. Mires cap al balcó i encara no s'ha trencat. "Què ha sigut el CRACK que he escoltat?". Què vols fer?
+
+Anar a la porta - Hab12___text:Et trobes davant de la porta; vols utilitzar la clau trobada?
+
+Si, utilitzar la clau___text:Introdueixes la clau al pany i encaixa a la perfecció. Click... Clack... (Porta Oberta!)
+
+Tornar a l'habitacio 1___text:Et trobes a l'habitació 1; on vas despertar amb mal de cap. Què vols fer?
+
+Anar a l'habitacio 1___text:Et trobes a l'habitació 1; on vas despertar amb mal de cap. Què vols fer?
+
+Sortir al passadis Hab1 - Planta 2___text:Et trobes en un passadís a la segona planta. Veus un ascensor al final i una altra habitació a prop d'on et trobes; que té un cartell que diu Habitació 2. On anem?
+
+Sortir al passadis Hab2 - Planta 2___text:Et trobes en un passadís a la segona planta. Veus un ascensor a la dreta i una altra habitació a la esquerra d'on estàs que té un cartell que diu Habitació 1. On anem?
+
+Baixar de l'ascensor P2___text:Et trobes en un passadís a la segona planta. Veus una habitació al final i una altra habitació més a prop d'on estàs que té un cartell que diu Habitació 2. On anem?
+
+Anar a l'habitacio 2___text:Entres a l'habitació 2 i et trobes l'habitació d'un nen/a. Hi ha un llit ple de peluixos; una taula amb dibuixos i tot d'objectes escampats on et crida la atenció una llanterna i una cadira en mig de l'habitació amb una soga colgant(WTF?!). Què vols fer?
+
+Apropar-te al llit - Hab2___text:Tens un llit davant teu perfectament fet i plè de peluixos on hi ha un ós; un Mario; un Pikachu; un unicorn; un peluix d'una maga de la magica Doremi... Tot un festival de peluixos de diferents sèries. Què vols fer?
+
+Fer una migdiada___text:Amb el braç d'un cop treus tots els peluixos del llit i fas la migdiada de la teva vida. Després d'una estona escoltes un CLICK... BOOOM i l'edifici explota.___text:Has dormit massa i l'edifici ha explotat. Has mort. Fi del joc.
+
+Apropar-te a la taula - Hab2___text:Arribes a la taula i et trobes dibuixos d'un nen/a de 5 anys on hi ha un amb un nen i els seus pares; un altre d'un pikachu; un d'un vigilant custodiant una porta; un dibuix d'un cotxe que sembla un ferrari... Què fas??
+
+Apropar-te a la taula - Hab22___text:Arribes a la taula i et trobes dibuixos d'un nen/a de 5 anys on hi ha un amb un nen i els seus pares; un altre d'un pikachu; un d'un vigilant custodiant una porta; un dibuix d'un cotxe que sembla un ferrari... Què fas??
+
+Apropar-te a la cadira - Hab2___text:Veus una cadira just a sota d'una soga; com si algú es volgués suïcidar. Què fem?
+
+Suicidar-se___text:Puges a sobre de la cadira; agafes la soga i la fiques al teu coll i d'una patada llances la cadira al terra. Aaaarhhhg...___text:T'has suïcidat amb la soga. Ningú t'hi trobarà mai. Has mort. Fi del joc.
+
+Anar a l'ascensor___text:Puges a l'ascensor i en el panell de plantes solament n'hi ha 3 botons. A quin pis vols anar?
+
+Anar a la Planta 1___text:Arribes a la Planta 1 i s'obre la porta de l'ascensor.
+
+Anar a la Planta 2___text:Arribes a la Planta 2 i s'obre la porta de l'ascensor.
+
+Anar a la Planta 3___text:Arribes a la Planta 3 i s'obre la porta de l'ascensor.
+
+Baixar de l'ascensor P1___text:Acabes de sortir de l'ascensor i et trobes a la Planta 1. Què vols fer?
+
+Baixar de l'ascensor P3___text:Acabes de sortir de l'ascensor i et trobes a la planta 3. Què vols fer?
+
+Anar a la porta principal___text:T'acostes davant de la porta principal; intentes obrir-la però està tancada. Mires pels costats i trobes que hi ha ranura on introduïr una tarja. "Ajuda; Necessitem la tarja per obrir la porta".
+
+Anar a la porta principal2___text:T'acostes d'avant de la porta principal. Utilitzes la tarja daurada que has trobat a l'habitació 3. Pip Pop; probes d'obrir la porta i no s'obre. Què fem?
+
+Anar a la porta principal3___text:T'acostes d'avant de la porta principal; introdueixes la tarja que has creat a l'habitació 5; Pip Pop Pup; intentas obrir la porta i s'obre! Què fem?
+
+Anar a la recepcio___text:Arribes a la recepció i no et trobes a ningú; però veus que alguna de les càmeras de video-vigilancia funcionen. Mires i et trobes una habitació custodiada per un vigilant però el vigilant està mort a terra. T'hi fixes i es troba a la tercera planta. Què vols fer?
+
+Anar a l'habitacio custodiada___text:Et trobes la porta custodiada pel vigilant on necessites una tarja per poder entrar. Penses... "Segur que el vigilant té la tarja". Què fem?
+
+Apropar-te al vigilant mort___text:El guarda té tota la camisa plena de sang. Ha mort per uns quants trets al cos. Està estirat a terra amb la mà estirada com si estigués agafant la cama del assassí. Què hauria de fer?
+
+Anar a l'habitacio custodiada2___text:Et trobes la porta custodiada pel vigilant on necessites una tarja per poder entrar. Utilitzes la tarja del guarda. Pip Pip (Veu robòtica femenina; "Porta oberta; tanca després d'entrar"). Què faig?
+
+Apropar-te al vigilant mort2___text:El guarda té tota la camisa plena de sang. Ha mort per uns quants trets al cos. Està estirat a terra amb la mà estirada com si estigués agafant la cama del assassí. Què hauria de fer?
+
+Saludar al guarda___text:Aixeques la mà i dius; Hey! Què fem?.
+
+Entrar a l'habitacio custodiada___text:Entres a l'habitació i et trobes unes escales de cargol que pugen; intueixes que a la quarta planta. També trobes un munt d'armaris plens de archivadors; que per els noms que tenen escrits semblen factures i arxius contables. A més d'un petit ordinador i una tarja daurada al costat d'ell. Què vols fer?
+
+Entrar a l'habitacio custodiada2___text:Entres a l'habitació i et trobes unes escales de cargol que pugen; intueixes que a la quarta planta. També trobes un munt d'armaris plens de archivadors; que per els noms que tenen escrits semblen factures i arxius contables. A més d'un petit ordinador. Què vols fer?
+
+Sortir de l'habitacio custodiada___text:Surts de l'habitació custodiada pel vigilant mort. Et trobes al passadís de la tercera planta. Què vols fer?
+
+Pujar les escales___text:Puges les escales i efectivament et trobes a la quarta planta que està mig en ruïnes i no hi ha pràcticament llum. Ajuda; Que bé aniria una llanterna... Què faig?
+
+Pujar les escales2___text:Puges les escales i efectivament et trobes a la quarta planta que està mig en ruïnes i no hi ha pràcticament llum. Ajuda; Que bé aniria una llanterna... Què faig?
+
+Utilitzar la llanterna___text:Encens la llanterna i pots veure el passadis. Hi ha dues habitacions; una més a prop; l'altra al fons (amb lector de tarja). Et vas acostant cap a ella però la llanterna s'apaga. Només hem pogut arribar fins a la porta de l'habitació que teniem més a prop. Què fem?
+
+Sortir de l'habitacio 42___text:Surts al passadis i fiques la pila a la llanterna. La llanterna s'encèn i pots anar a l'habitació del fons del passadis. On anem?
+
+Sortir de l'habitacio 4___text:Surts al passadis i com que no tenim una pila no podem encendre la llanterna. Sense ella no podem veure el passadís sencer. Per tant; no podem anar a l'habitació del fons del passadis. On anem?
+
+Anar a l'habitacio propera a les escales___text:Entres a l'habitació i està tot desordenat i trencat. Hi ha un armari oxidat destrossat. Què fem?
+
+Anar a l'armari oxidat___text:Obre l'armari amb força pel òxid i et trobes; una pila; material de impresora 3DI; un porret de marihuana; una font d'alimentació; una llauna de tonyina. Què vols fer amb aquests objectes?
+
+Anar a l'armari oxidat2___text:Ens apropem a l'armari oxidat i està buit. Què fem?
+
+Anar a l'habitacio del fons___text:Entres a l'habitació i veus un CPD enorme apagat com si li faltés algún component. Al costat; hi ha una impressora 3DI la qual imprimeix qualsevol cosa en 1 min gràcies al CPD. Què fem?
+
+Anar al CPD___text:T'acostes davant del CPD i efectivament la font d'alimentació està cremada. Què fem?
+
+Anar al CPD2___text:T'acostes davant del CPD i ja no funciona. Tot s'ha espatllat just després de imprimir la clau. Què fem?
+
+Canviar la font d'alimentacio___text:Després de canviar la font d'alimentació; encens el CPD. Fuuuuuuuuuu! Pip Pop Pip. El CPD està encès. Què fem?
+
+Hackejar___text:T'apropes a la impressora 3DI. T'hi fixes i no té material per crear objectes. Què fem?
+
+Utilitzar material 3D___text:Has seguit les instruccions del CPD; i has imprès gràcies a l'impressora 3Di; la tarja mestra. (Tarja mestra guardada a la motxilla). Què vols fer ara?
+
+Sortir de l'habitacio 5___text:Surts de l'habitació del fons. Et trobes al passadís de la quarta planta. Què vols fer?
+
+Agafar un peluix aleatori___text:El peluix s'ha afegit a la teva motxilla. Consulta la teva motxilla i el temps restant. (/info). Què vols fer ara?
+
+Agafar la llanterna___text:La llanterna s'ha afegit a la teva motxilla. Consulta la teva motxilla i el temps restant. (/info). Què vols fer ara?
+
+Agafar la tarja daurada___text:La tarja daurada s'ha afegit a la teva motxilla. Consulta la teva motxilla i el temps restant. (/info). Què vols fer ara?
+
+Agafar els objectes___text:La pila; el material de impresora 3DI; el porret de marihuana; la font d'alimentació i la llauna de tonyina s'han afegit a la teva motxilla. Consulta la teva motxilla i el temps restant. (/info). Què vols fer ara?
+
+Buscar per les butxaques del guarda___text:Després de remenar per les butxaques del cadàver; has trobat la tarja per l'habitació. (Aquesta tarja s'ha afegit a la teva motxilla. Consulta la teva motxilla i el temps restant. (/info).) Què vols fer ara?
+
+Buscar per les butxaques del guarda2___text:Després de remenar per les butxaques del cadàver; ja no trobes res més. Què vols fer ara?
+
+Baixar les escales___text:Baixes les escales i et trobes a l'habitació custodiada. Què vols fer?
+
+Saltar pel balco___text:Has saltat des del balcó. Has quedat destrossat al terra. Has mort. Fi del joc.
+
+Sortir de l'edifici___text:Ets un dels pocs que ha aconseguit sortit de la "Destroyed Tower". Felicitats! Ara tocarà començar una nova vida en aquest nou món. Fi del joc.
+
+TimeOut___text:Has trigat massa en trobar la sortida. L'edifici no ha resistit i ha explotat. Has mort. Fi del joc.

@@ -1,0 +1,26 @@
+
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor jugador
+rectangle partida {
+  jugador --(desplaçar-se per l'escenari)
+  jugador -- (consultar temps i motxila)
+  jugador -- (interacció amb objectes)
+  jugador --(morir)
+  jugador -- (abrir porta)
+}
+rectangle "finalitzar partida"{
+ (morir) ..> (perdre partida) : include
+  (guanyar partida)
+}
+rectangle Sistema{
+ (guanyar partida)..>(emmagatzemar ranking) : include
+ (guanyar partida)..>(mostrar ranking) : include
+(crear mapa)
+}
+rectangle "començar partida"{
+jugador --(registrar-se)
+(registrar-se)..>(crear mapa) : include
+}
+@enduml

@@ -1,0 +1,63 @@
+@startuml
+actor Jugador
+boundary Telegram
+control Gestor
+entity User
+entity Habitacio
+entity Option
+entity Motxilla
+
+group Interaccio objectes (Motxilla)
+Jugador -> Telegram : Seleccionar opcio()
+activate Telegram
+Telegram -> Gestor : Realitza jugada()
+activate Gestor
+Gestor -> User : GetMotxilla()
+activate User
+User -> Gestor : return(motxilla)
+deactivate User
+Gestor -> Motxilla : AddToMotxilla(obj)
+activate Motxilla
+Motxilla -> Gestor : Return(bool)
+deactivate Motxilla
+Gestor -> Habitacio : SubObjecte(obj)
+activate Habitacio
+Habitacio -> Gestor : Return(bool)
+deactivate Habitacio
+Gestor -> Telegram : Return(bool)
+deactivate Gestor
+Telegram -> Jugador : Return(bool)
+deactivate Telegram
+deactivate Jugador
+end
+
+group Obrir porta (Habitacio)
+Jugador -> Telegram : Seleccionar opcio()
+activate Telegram
+Telegram -> Gestor : Realitzar jugada()
+activate Gestor
+Gestor -> User : GetMotxilla()
+activate User
+User -> Gestor : return(motxilla)
+deactivate User
+Gestor -> Option : get_texts(ind)
+activate Option
+Option -> Gestor : Return(string)
+deactivate Option
+Gestor -> Option : get_optionkeyboard(ind)
+activate Option
+Option -> Gestor : Return(string)
+deactivate Option
+Gestor -> Option : get_realitzar_modf(ind)
+activate Option
+Option -> Gestor : Return(string)
+deactivate Option
+Gestor -> Telegram : return(String)
+deactivate Gestor
+Telegram -> Jugador : print Info()
+deactivate Gestor
+deactivate Jugador
+end
+
+@endum
+@enduml

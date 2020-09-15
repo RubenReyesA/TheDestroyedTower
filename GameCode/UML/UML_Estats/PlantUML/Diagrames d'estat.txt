@@ -1,0 +1,728 @@
+@startuml
+
+title Diagrama d'estat general
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Inicialització de Usuaris" as IU{
+
+	state "Inicialitzat nou Usuari" as INU
+	state "Inicialitzat Usuari Existent" as IUE
+	state "sense Opcions" as SO
+	state "amb Opcions" as IO
+	state "sense iniciar sessió" as SD
+
+	[*] --> SD: u_motxilla = null, u_timer = null, u_edifici = null, u_options = empty
+	SD --> INU
+	SD --> IUE
+	INU --> SO
+	IUE --> SO
+	SO --> IO: u_motxilla = obj. motxilla, u_timer = obj. timer, u_edifici = obj. edifici, u_options = llista dict. opcions
+	IO --> IO: return u_motxilla
+	IO --> IO: return u_timer
+	IO --> [*]
+
+	IO: entry/GetMotxilla(self)
+	IO: entry/GetTimer(self)
+	SO: entry/init_options(self)
+
+	||
+
+	state "Temps inicial" as TI
+	state "Temps restant" as TR
+
+	[*] --> TI: t_time = 0
+	TI --> TR: t_time += value
+	TI --> TR: t_time -= value
+	TI --> TI: mostrar t_time per pantalla
+	TR --> TR: t_time +=  value
+	TR --> TR: t_time -= value
+	TR --> TR: mostrar t_time per pantalla
+	TR --> [*]
+
+	TI: entity/Add_Seg(self)
+	TI: entity/Restar_Seg(self)
+	TI: entity/PrintTime(self)
+
+	TR: entity/Add_Seg(self)
+	TR: entity/Restar_Seg(self)
+	TR: entity/PrintTime(self)
+
+}
+state "Inicialització de Ranking" as IR {
+
+	state "Inicialitzat" as I
+	state "Ranking carregat" as RC
+	state "Ranking actualitzat" as RA
+
+	[*] --> I: r_Nom = nom ranking, r_Ranking = empty
+	I --> RC: r_Ranking = llista dict. de les puntuacions
+	RC --> RC: print()
+	RC --> RA: r_Ranking = llista dict. actualitzada amb la última partida
+	RA --> RA: print()
+	RA --> [*]
+
+	I: entity/ReadTXT()
+	RC: entity/FiveFirstRanking()
+	RC: entity/printRanking()
+	RC: entity/AddtoRanking()
+	RA: entity/FiveFirstRanking()
+	RA: entity/printRanking()
+	RA: entity/WriteTXT()
+
+}
+state "Espera de connexió" as EC
+state "Partida creada" as PC{
+
+	state "Edifici amb mapa" as EM {
+
+		state "Portes Creades" as PortesC{
+
+			state "Porta Oberta" as PO
+			state "Porta Tancada" as PT {
+				
+				state "Finestra Tancada" as FT
+				state "Finestra Oberta" as FO
+				[*] --> FT: pt_oberta = false, f_targetaclau = Obj. Tarjeta
+				FT --> FO : pt_oberta = true, f_tarjetaclau = null
+				FO --> [*]
+
+				note right of FO
+					El canvi del contingut de f_tarjetaclau
+					es realitza a la funció agafar_objecte 
+					de Contingut
+				end note
+
+				note right of FT
+					El canvi del contingut de obrir i tancar
+					porta pt_oberta es realitza a la funció 
+					obrir_porta de Porta
+				end note
+
+				||
+
+				state "Habitació amb finestra" as HF
+				state "Habitació amb porta" as HP
+				state "Habitació amb finestra i porta" as HFP
+
+				[*] --> HF: h_Nom = nom habitació, h_porta = false, h_finestra = true, h_Objectes = llista dict d'objectes a l'habitació
+				[*] --> HP: h_Nom = nom habitació, h_porta = true, h_finestra = false, h_Objectes = llista dict d'objectes a l'habitació
+				[*] --> HFP: h_Nom = nom habitació, h_porta = true, h_finestra = true, h_Objectes = llista dict d'objectes a l'habitació
+				HF --> [*]
+				HP --> [*]
+				HFP --> [*]
+
+				||
+
+				state "Motxilla buida" as MB
+				state "Motxilla amb coses" as MC
+
+				[*] --> MB: m_Nom = Motxilla, m_Objectes = empty
+				MB --> MC: m_Objectes = (inserció d'objectes)
+				MC --> MC: m_Objectes = (inserció d'objectes)
+				MC --> MB: m_Objectes = empty
+				MB --> [*]
+				MC --> [*]
+
+				MB: entity/AddtoMotxilla(self, obj={})
+				MB: entity/PrintMotxilla(self)
+				MC: entity/AddtoMotxilla(self, obj={})
+				MC: entity/PrintMotxilla(self)
+
+			}
+
+			[*] --> PT: pt_name = (nom de la habitacio), pt_oberta = false, pt_hab1 i pt_hab2 = habitacio pertanyent a cada costat de la porta
+			PT -left-> PO: pt_oberta = true
+			PO -right-> PT: pt_oberta = false
+			PO --> [*]
+			PT --> [*]
+
+			PT: entry/obrir_porta(self)
+			PO: entry/tancar_porta(self)
+
+		}
+		state "Planta amb ascensor activat sense escales" as PAA
+		state "Planta amb ascensor desactivat sense escales" as PAD
+		state "Planta amb ascensor activat amb escales" as PAAE
+		state "Planta amb ascensor desactivat amb escales" as PADE
+
+		[*] --> PortesC: p_portes = llista dict de portes
+		PortesC --> PAD: p_Nom = nom planta, ascensor_disonible = false, escales_trobades = false, indv = null
+		PAD -left-> PADE: escales_trobades = true
+		PAD -right-> PAA: ascensor_disponible = true
+		PAA --> PAD: ascensor_disponible = false
+		PAA --> PAAE: escales_trobades = true
+		PADE --> PAAE: ascensor_disponible = true
+		PAAE --> PADE: ascensor_disponible = false
+		PAA --> [*]
+		PAD --> [*]
+		PAAE --> [*]
+		PADE --> [*]
+
+		PAA: entry/marcar_escales_tobades(self)
+		PAD: entry/marcar_escales_trobades(self)
+		PAD: entry/activar_ascensor(self)
+		PAAE: entry/desactivar_ascensor(self)
+		PADE: entry/activar_ascensor(self)
+
+	}
+	state "Edifici sense mapa" as ESM
+
+	[*] --> ESM: e_Nom = The Destroyes Tower, e_plantes = empty
+	ESM --> EM: e_plantes = llista dict amb totes les plantes
+	EM --> [*]
+
+	ESM: entry/init_map(self)
+
+}
+
+state "Lectura d'events" as LE {
+
+	state "Espera de resposta a l'usuari" as OR
+
+	[*] --> OR: o_Nom = Opcions, o_texts = llista texts, o_optionkeyboard = llista de opcions posibles, o_realitzar_modf = llista de modificacions, time = temps que es triga en fer una acció
+	OR --> OR: canvi de les dades que s'envien en cada petició de text
+	OR --> [*]
+
+}
+
+[*] --> EC:g_Nom = The Destroyed Tower, g_Users = empty, g_Rank = empty
+EC -d-> IU:g_Users = llista d'usuaris creats
+IU --> PC
+PC --> LE
+LE --> LE: nou event
+LE --> IR
+IR -u-> EC: nova connexió
+IR --> [*]
+
+LE: entry/realitzar_jugada(self, bot, update)
+EC: entry/name(self, bot, update)
+IU: entry/start(self, bot, update)
+
+
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Armari
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+
+[*] --> Ple_Tancat: a_objectes = {id1: pila, id2: material impresora 3d, id3: porro de marihuana, id4: font d'alimentació, id5: llauna de tonyina}, Est_porta = false
+Ple_Tancat: entry/obrir_porta()
+Ple_Tancat --> Ple_Obert: Est_porta = true
+Ple_Obert --> Buit: a_objectes = {}
+Ple_Obert: entry/retirar_objectes()
+Buit --> [*]
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title CPD
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+[*] --> Apagat: canvi_font = false, ft = null
+state "Encès" as ences
+Apagat --> ences: canvi_font = true, ft = obj. Font
+Apagat: entry/canviar_font(self)
+ences: entry/canvi_font(self)
+ences --> [*]
+Apagat --> [*]
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Llanterna
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Sense Agafar i Apagada" as sense_agafar_apagada_sensepila
+state "Agafada Apagada i sense Pila" as agafada_apagada
+state "Agafada Apagada i amb Pila" as agafada_apagada_ambpila
+state "Agafada Encesa" as agafada_encesa
+
+
+[*] --> sense_agafar_apagada_sensepila: obj_agafat = false, on = false, Pila = null
+sense_agafar_apagada_sensepila: entry/agafar_llanterna(self)
+sense_agafar_apagada_sensepila --> agafada_apagada: obj_agafat = true
+agafada_apagada_ambpila --> agafada_encesa: on = true
+agafada_apagada: entry/utilitzar_piles(self, pila)
+agafada_encesa --> agafada_apagada_ambpila: on = false
+agafada_apagada --> agafada_apagada_ambpila: Pila = obj. Pila
+agafada_encesa --> [*]
+agafada_apagada --> [*]
+agafada_apagada_ambpila --> [*]
+
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Impresora 3D
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+[*] --> impressora_buida: impressora_carregada = false, M3d = null
+impressora_buida --> impressora_carregada: impressora_carregada = true, M3d = obj. Material3Di
+impressora_carregada --> impressora_treballant
+impressora_treballant --> impressora_carregada
+impressora_carregada --> [*]
+
+impressora_buida: entry/carregar_impressora(self)
+impressora_carregada: entry/imprimir_tarja_mestra(self)
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Finestra
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Finestra Tancada" as FT
+state "Finestra Oberta" as FO
+[*] --> FT: pt_oberta = false, f_targetaclau = Obj. Tarjeta
+FT --> FO : pt_oberta = true, f_tarjetaclau = null
+FO --> [*]
+
+note right of FO
+	El canvi del contingut de f_tarjetaclau
+	es realitza a la funció agafar_objecte 
+	de Contingut
+end note
+
+note right of FT
+	El canvi del contingut de obrir i tancar
+	porta pt_oberta es realitza a la funció 
+	obrir_porta de Porta
+end note
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Porta
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Porta Oberta" as PO
+state "Porta Tancada" as PT
+
+[*] --> PT: pt_name = (nom de la habitacio), pt_oberta = false, pt_hab1 i pt_hab2 = habitacio pertanyent a cada costat de la porta
+PT -left-> PO: pt_oberta = true
+PO -right-> PT: pt_oberta = false
+PO --> [*]
+PT --> [*]
+
+PT: entry/obrir_porta(self)
+PO: entry/tancar_porta(self)
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Planta
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Planta amb ascensor activat sense escales" as PAA
+state "Planta amb ascensor desactivat sense escales" as PAD
+state "Planta amb ascensor activat amb escales" as PAAE
+state "Planta amb ascensor desactivat amb escales" as PADE
+state "Portes creades" as PC
+
+[*] --> PC: p_portes = llista dict de portes
+PC --> PAD: p_Nom = nom planta, ascensor_disonible = false, escales_trobades = false, indv = null
+PAD -left-> PADE: escales_trobades = true
+PAD -right-> PAA: ascensor_disponible = true
+PAA --> PAD: ascensor_disponible = false
+PAA --> PAAE: escales_trobades = true
+PADE --> PAAE: ascensor_disponible = true
+PAAE --> PADE: ascensor_disponible = false
+PAA --> [*]
+PAD --> [*]
+PAAE --> [*]
+PADE --> [*]
+
+PAA: entry/marcar_escales_tobades(self)
+PAD: entry/marcar_escales_trobades(self)
+PAD: entry/activar_ascensor(self)
+PAAE: entry/desactivar_ascensor(self)
+PADE: entry/activar_ascensor(self)
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Edifici
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Edifici amb mapa" as EM
+state "Edifici sense mapa" as ESM
+
+[*] --> ESM: e_Nom = The Destroyes Tower, e_plantes = empty
+ESM --> EM: e_plantes = llista dict amb totes les plantes
+EM --> [*]
+
+ESM: entry/init_map(self)
+
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Habitació
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Habitació amb finestra" as HF
+state "Habitació amb porta" as HP
+state "Habitació amb finestra i porta" as HFP
+
+[*] --> HF: h_Nom = nom habitació, h_porta = false, h_finestra = true, h_Objectes = llista dict d'objectes a l'habitació
+[*] --> HP: h_Nom = nom habitació, h_porta = true, h_finestra = false, h_Objectes = llista dict d'objectes a l'habitació
+[*] --> HFP: h_Nom = nom habitació, h_porta = true, h_finestra = true, h_Objectes = llista dict d'objectes a l'habitació
+HF --> [*]
+HP --> [*]
+HFP --> [*]
+
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Motxilla
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Motxilla buida" as MB
+state "Motxilla amb coses" as MC
+
+[*] --> MB: m_Nom = Motxilla, m_Objectes = empty
+MB --> MC: m_Objectes = (inserció d'objectes)
+MC --> MC: m_Objectes = (inserció d'objectes)
+MC --> MB: m_Objectes = empty
+MB --> [*]
+MC --> [*]
+
+MB: entity/AddtoMotxilla(self, obj={})
+MB: entity/PrintMotxilla(self)
+MC: entity/AddtoMotxilla(self, obj={})
+MC: entity/PrintMotxilla(self)
+
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Timer
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Temps inicial" as TI
+state "Temps restant" as TR
+
+[*] --> TI: t_time = 0
+TI --> TR: t_time += value
+TI --> TR: t_time -= value
+TI --> TI: mostrar t_time per pantalla
+TR --> TR: t_time +=  value
+TR --> TR: t_time -= value
+TR --> TR: mostrar t_time per pantalla
+TR --> [*]
+
+TI: entity/Add_Seg(self)
+TI: entity/Restar_Seg(self)
+TI: entity/PrintTime(self)
+
+TR: entity/Add_Seg(self)
+TR: entity/Restar_Seg(self)
+TR: entity/PrintTime(self)
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title User
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Inicialitzat nou Usuari" as INU
+state "Inicialitzat Usuari Existent" as IUE
+state "sense Opcions" as SO
+state "amb Opcions" as IO
+state "sense iniciar sessió" as SD
+
+[*] --> SD: u_motxilla = null, u_timer = null, u_edifici = null, u_options = empty
+SD --> INU
+SD --> IUE
+INU --> SO
+IUE --> SO
+SO --> IO: u_motxilla = obj. motxilla, u_timer = obj. timer, u_edifici = obj. edifici, u_options = llista dict. opcions
+IO --> IO: return u_motxilla
+IO --> IO: return u_timer
+IO --> [*]
+
+IO: entry/GetMotxilla(self)
+IO: entry/GetTimer(self)
+SO: entry/init_options(self)
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Ranking
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Inicialitzat" as I
+state "Ranking carregat" as RC
+state "Ranking actualitzat" as RA
+
+[*] --> I: r_Nom = nom ranking, r_Ranking = empty
+I --> RC: r_Ranking = llista dict. de les puntuacions
+RC --> RC: print()
+RC --> RA: r_Ranking = llista dict. actualitzada amb la última partida
+RA --> RA: print()
+RA --> [*]
+
+I: entity/ReadTXT()
+RC: entity/FiveFirstRanking()
+RC: entity/printRanking()
+RC: entoty/AddtoRanking()
+RA: entity/FiveFirstRanking()
+RA: entity/printRanking()
+RA: entity/WriteTXT()
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Option
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Espera de resposta a l'usuari" as OR
+
+[*] --> OR: o_Nom = Opcions, o_texts = llista texts, o_optionkeyboard = llista de opcions posibles, o_realitzar_modf = llista de modificacions, time = temps que es triga en fer una acció
+OR --> OR: canvi de les dades que s'envien en cada petició de text
+OR --> [*]
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Gestor
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Inicialització de Usuaris" as IU
+state "Inicialització de Ranking" as IR
+state "Espera de connexió" as EC
+state "Partida creada" as PC
+state "Mostrar proxim event" as PE
+state "Lectura d'events" as LE
+
+[*] --> EC:g_Nom = The Destroyed Tower, g_Users = empty, g_Rank = empty
+EC -d-> IU:g_Users = llista d'usuaris creats
+IU --> PC
+PC --> PE
+PE --> LE
+LE --> PE: nou event
+LE --> IR
+IR -u-> EC: nova connexió
+IR --> [*]
+
+LE: entry/realitzar_jugada(self, bot, update)
+EC: entry/name(self, bot, update)
+IU: entry/start(self, bot, update)
+
+@enduml
+
+-----------------------------------------------------------------------------------------------------------------
+
+@startuml
+
+title Objecte (Contenidor i Contingut)
+
+hide empty description
+skinparam backgroundColor Transparent
+skinparam state {
+	StartColor LightSlateGray
+	EndColor Crimson
+	BorderColor Black
+	BackgroundColor HoneyDew
+}
+
+state "Objecte Creat" as OC
+
+
+[*] --> OC: obj_nom = Nom de l'objecte 
+state OC{
+	state "Contenidor Creat" as CContenidor
+	
+	[*] --> CContenidor: obj = llista dict de objectes que poden contenir objectes 
+	CContenidor --> [*]
+	--
+
+	state "Contingut Creat" as CContingut
+	state "Agafat" as A
+	state "Col·locat al mapa" as CM
+
+	[*] --> CContingut: agafat = false
+	CContingut --> CM: Inserit dins de l'obj de contenidor
+	CM --> A
+	A --> [*]
+	CContingut: entry/agafar_objecte(self)
+}
+OC --> [*]
+
+
+@enduml

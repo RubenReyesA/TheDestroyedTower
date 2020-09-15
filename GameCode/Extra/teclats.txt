@@ -1,0 +1,115 @@
+hab1desperta___Anar a la porta___Anar a la finestra
+
+hab1portasenseclau___Anar a la finestra
+
+hab1finestra___Mirar per la finestra___Sortir al balcó___Tornar i anar a la porta
+
+hab1mirarfinestraclau___Tornar a mirar per la finestra___Sortir al balcó___Tornar i anar a la porta
+
+hab1balcoclau___Agafar l'objecte brillant i saltar cap a l'habitació___Saltar pel balcó___Tornar i anar a la porta
+
+hab1mirarfinestrasenseclau___Tornar a mirar per la finestra___Sortir al balcó___Tornar i anar a la porta
+
+hab1balcosenseclau___Saltar pel balcó___Tornar i anar a la porta
+
+hab1clau___Anar a la porta___Tornar a la finestra
+
+hab1porta___Utilitzar la clau
+
+hab1portasortir___Sortir de l'habitació 1___Tornar a l'habitació 1
+
+tornarhab1___Anar a la porta___Anar a la finestra
+
+passadishab1___Habitació 1___Habitació 2___Ascensor
+
+passadishab2___Habitació 1___Habitació 2___Ascensor
+
+passadisascensor___Habitació 1___Habitació 2___Ascensor
+
+hab2porta___Apropar-te al llit___Apropar-te a la taula___Apropar-te a la cadira___Sortir de l'habitació 2
+
+hab2llit___Fer la migdiada___Agafar un peluix aleatori___Apropar-te a la taula___Apropar-te a la cadira___Sortir de l'habitació 2
+
+hab2taula___Agafar la llanterna___Apropar-te al llit___Apropar-te a la cadira___Sortir de l'habitació 2
+
+hab2taulasensellanterna___Apropar-te al llit___Apropar-te a la cadira___Sortir de l'habitació 2
+
+hab2cadira___Suïcidar-se___Apropar-te a la taula___Apropar-te a la cadira___Sortir de l'habitació 2
+
+ascensorpujar___Planta 1___Planta 2___Planta 3
+
+ascensorbaixarP1___Baixar de l'ascensor___Pujar a l'ascensor
+
+ascensorbaixarP2___Baixar de l'ascensor___Pujar a l'ascensor
+
+ascensorbaixarP3___Baixar de l'ascensor___Pujar a l'ascensor
+
+habpppsensetarja___Anar a l'ascensor___Anar a recepció
+
+habppptarjadaurada___Anar a l'ascensor___Anar a recepció
+
+habppptarjamestra___Sortir de l'edifici___Anar a l'ascensor___Anar a recepció
+
+habprecepcio___Anar a l'ascensor___Anar a la porta principal
+
+p1passadisascensor___Anar a l'ascensor___Anar a recepció___Anar a la porta principal
+
+p3passadisascensor___Anar a l'ascensor___Anar a l'habitació custodiada___apropar-te al vigilant mort
+
+hab3porta___apropar-te al vigilant mort___Anar a l'ascensor
+
+habcguardamorttarja___Buscar per les butxaques del guarda___Saludar___apropar-te a l'habitació custodiada___Anar a l'ascensor
+
+hab3portatarja___Entrar a l'habitació 3___apropar-te al vigilant mort___Anar a l'ascensor
+
+habcguardamortsensetarja___Saludar___apropar-te a l'habitació custodiada___Anar a l'ascensor
+
+habcsaludarguarda___Tornar a saludar___apropar-te a l'habitació custodiada___Anar a l'ascensor
+
+hab3entrar___Pujar les escales___Agafar la tarja daurada___Sortir de l'habitació 3
+
+hab3entrarsensetarjadaurada___Pujar les escales___Sortir de l'habitació 3
+
+p4passadissensellanterna___Baixar les escales
+
+p4passadisllanterna___Utilitzar la llanterna___Baixar les escales
+
+p4utilitzarllanterna___Anar a l'habitació propera a les escales___Baixar les escales
+
+p4passadispila___Anar a l'habitació del fons___Anar a l'habitació propera a les escales___Baixar les escales
+
+p4passadissensepila___Anar a l'habitació propera a les escales___Baixar les escales
+
+hab4porta___Anar a l'armari oxidat___Sortir de l'habitació 4
+
+hab4armari___Agafar els objectes___Sortir de l'habitació 4
+
+hab4armaribuit___Sortir de l'habitació 4
+
+hab5porta___Anar al CPD___Sortir de l'habitació 5
+
+hab5CPDespatllatifont___Canviar la font d'alimentació___Sortir de l'habitació 5
+
+hab5CPDarreglat___Hackejar___Sortir de l'habitació 5
+
+hab5impressora3D___Utilitzar material 3D___Sortir de l'habitació 5
+
+hab5utilitzarmaterial3D___Sortir de l'habitació 5
+
+hab2agafarpeluix___Fer la migdiada___Apropar-te a la taula___Apropar-te a la cadira___Sortir de l'habitació 2
+
+hab2agafarllanterna___Apropar-te al llit___Apropar-te a la cadira___Sortir de l'habitació 2
+
+hab3agafartarjadaurada___Pujar les escales___Sortir de l'habitació 3
+
+hab4agafarobjectes___Sortir de l'habitació 4
+
+habcbuscarbutxaquesguarda___Saludar___Anar a l'habitació custodiada___Anar a l'ascensor
+
+hab3sortir___Anar a l'habitació custodiada___Apropar-te al vigilant mort___Anar a l'ascensor
+
+p4baixarescales___Pujar les escales___Sortir de l'habitació 3
+
+hab4sortir___Anar a l'habitació del fons___Anar a l'habitació propera a les escales___Baixar les escales
+
+hab5sortir___Anar a l'habitació del fons___Anar a l'habitació propera a les escales___Baixar les escales

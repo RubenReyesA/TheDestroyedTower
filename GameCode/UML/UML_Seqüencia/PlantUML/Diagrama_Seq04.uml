@@ -1,0 +1,60 @@
+﻿@startuml
+actor Jugador
+boundary Telegram
+control Gestor
+entity Ranking
+entity User
+entity Timer
+entity Options
+
+group Guanyar Partida
+    activate Jugador
+      Jugador -> Telegram : Seleccionar_opcio()
+    activate Telegram
+      Telegram -> Gestor : Realitzar_jugada(self,bot,update)
+    activate Gestor
+	  ref over Gestor: Desplacar-se per l'escenari()
+      Gestor -> User : GetTimer()
+	  activate User
+	  User -> Gestor : return(timer)
+	  deactivate User
+      Gestor -> Timer : RestarSeg()
+	  activate Timer
+      Timer -> Gestor : Return(bool)
+    deactivate Timer
+      Gestor -> Options : get_texts(ind)
+    activate Options
+      Options -> Gestor : Return(String)
+    deactivate Options
+      Gestor -> Options : get_options(ind)
+    activate Options
+      Options -> Gestor : Return(String)
+    deactivate Options
+      Gestor -> Options : get_realitzar_mod(ind)
+    activate Options
+      Options -> Gestor : Return(String)
+    deactivate Options
+	group Emmagatzemar Ranking
+      Gestor -> Ranking : AddtoRanking(User)
+    activate Ranking
+	Ranking -> Gestor : return(bool)
+	deactivate Ranking
+end
+group Mostrar Ranking
+	  Gestor -> Ranking : FiveFirstRanking()
+	  activate Ranking
+      Ranking -> Gestor : return(bool)
+	  deactivate Ranking
+      Gestor -> Ranking : printRanking()
+	  activate Ranking
+	  Ranking -> Gestor : return(bool)
+    deactivate Ranking
+end
+      Gestor -> Telegram : Return(String)
+    deactivate Gestor
+      Telegram -> Jugador : Return(String)
+    deactivate Telegram
+    deactivate Jugador
+end
+
+@enduml

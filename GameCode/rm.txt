@@ -1,0 +1,133 @@
+start___text.txt
+
+Desperta___
+
+Anar a la porta - Hab1___
+
+Anar a la finestra - Hab1___
+
+Mirar per la finestra___
+
+Sortir al balco___
+
+Mirar per la finestra2___
+
+Sortir al balco2___
+
+Saltar cap a l'habitacio___
+
+Agafar l'objecte brillant i saltar cap a l'habitacio___user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab1"].pt_hab.h_finestra.f_clau.agafar_objecte___user.u_motxilla.AddtoMotxilla({user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab1"].pt_hab.h_finestra.f_clau.obj_nom:user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab1"].pt_hab.h_finestra.f_clau},user)___user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab1"].pt_hab.h_finestra.f_clau=None___user.options["Mirar per la finestra"]=user.options["Mirar per la finestra2"]___user.options["Sortir al balco"]=user.options["Sortir al balco2"]___user.options["Anar a la porta - Hab1"]=user.options["Anar a la porta - Hab12"]
+
+Anar a la porta - Hab12___
+
+Si, utilitzar la clau___
+
+Tornar a l'habitacio 1___
+
+Anar a l'habitacio 1___
+
+Sortir al passadis Hab1 - Planta 2___
+
+Sortir al passadis Hab2 - Planta 2___
+
+Baixar de l'ascensor P2___
+
+Anar a l'habitacio 2___
+
+Apropar-te al llit - Hab2___
+
+Fer una migdiada___
+
+Apropar-te a la taula - Hab2___
+
+Apropar-te a la taula - Hab22___
+
+Apropar-te a la cadira - Hab2___
+
+Suicidar-se___
+
+Anar a l'ascensor___
+
+Anar a la Planta 1___
+
+Anar a la Planta 2___
+
+Anar a la Planta 3___
+
+Baixar de l'ascensor P1___
+
+Baixar de l'ascensor P3___
+
+Anar a la porta principal___
+
+Anar a la porta principal2___
+
+Anar a la porta principal3___
+
+Anar a la recepcio___
+
+Anar a l'habitacio custodiada___
+
+Apropar-te al vigilant mort___
+
+Anar a l'habitacio custodiada2___
+
+Apropar-te al vigilant mort2___
+
+Saludar al guarda___
+
+Entrar a l'habitacio custodiada___
+
+Entrar a l'habitacio custodiada2___
+
+Sortir de l'habitacio custodiada___
+
+Pujar les escales___
+
+Pujar les escales2___
+
+Utilitzar la llanterna___
+
+Sortir de l'habitacio 42___
+
+Sortir de l'habitacio 4___
+
+Anar a l'habitacio propera a les escales___
+
+Anar a l'armari oxidat___
+
+Anar a l'armari oxidat2___
+
+Anar a l'habitacio del fons___
+
+Anar al CPD___
+
+Anar al CPD2___
+
+Canviar la font d'alimentacio___user.u_edifici.e_plantes["Planta 4"].p_portes["Porta - Hab5"].pt_hab.h_dict_obj["CPD"].canviar_font(user.u_motxilla.m_dict_obj["Font d'Alimentació"])
+
+Hackejar___user.u_edifici.e_plantes["Planta 4"].p_portes["Porta - Hab5"].pt_hab.h_dict_obj["Impressora 3Di"].imprimir_tarja_mestra
+
+Utilitzar material 3D___user.u_edifici.e_plantes["Planta 4"].p_portes["Porta - Hab5"].pt_hab.h_dict_obj["Impressora 3Di"].carregar_impressora(True)___user.u_motxilla.AddtoMotxilla({user.u_edifici.e_plantes["Planta 4"].p_portes["Porta - Hab5"].pt_hab.h_dict_obj["Impressora 3Di"].dict_obj["Targeta Mestra"].obj_nom:user.u_edifici.e_plantes["Planta 4"].p_portes["Porta - Hab5"].pt_hab.h_dict_obj["Impressora 3Di"].dict_obj["Targeta Mestra"]},user)___user.u_edifici.e_plantes["Planta 4"].p_portes["Porta - Hab5"].pt_hab.h_dict_obj["Impressora 3Di"].dict_obj["Targeta Mestra"]=None___user.options["Anar a la porta principal"]=user.options["Anar a la porta principal3"]
+
+Sortir de l'habitacio 5___
+
+Agafar un peluix aleatori___user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab2"].pt_hab.h_dict_obj["Llit"].dict_obj["Peluix Pokemon"].agafar_objecte___user.u_motxilla.AddtoMotxilla({user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab2"].pt_hab.h_dict_obj["Llit"].dict_obj["Peluix Pokemon"].obj_nom:user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab2"].pt_hab.h_dict_obj["Llit"].dict_obj["Peluix Pokemon"]},user)___user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab2"].pt_hab.h_dict_obj["Llit"]=None___user.options["Apropar-te al llit - Hab2"].lista_opciones.pop(1)
+
+Agafar la llanterna___user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab2"].pt_hab.h_dict_obj["Taula"].dict_obj["Llanterna"].agafar_llanterna___user.u_motxilla.AddtoMotxilla({user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab2"].pt_hab.h_dict_obj["Taula"].dict_obj["Llanterna"].obj_nom:user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab2"].pt_hab.h_dict_obj["Taula"].dict_obj["Llanterna"]},user)___user.u_edifici.e_plantes["Planta 2"].p_portes["Porta - Hab2"].pt_hab.h_dict_obj["Taula"]=None___user.options["Apropar-te a la taula - Hab2"]=user.options["Apropar-te a la taula - Hab22"]___user.options["Pujar les escales"]=user.options["Pujar les escales2"]
+
+Agafar la tarja daurada___user.u_edifici.e_plantes["Planta 3"].p_portes["Porta - Hab3"].pt_hab.h_dict_obj["Targeta Daurada"].agafar_objecte___user.u_motxilla.AddtoMotxilla({user.u_edifici.e_plantes["Planta 3"].p_portes["Porta - Hab3"].pt_hab.h_dict_obj["Targeta Daurada"].obj_nom:user.u_edifici.e_plantes["Planta 3"].p_portes["Porta - Hab3"].pt_hab.h_dict_obj["Targeta Daurada"]},user)___user.u_edifici.e_plantes["Planta 3"].p_portes["Porta - Hab3"].pt_hab.h_dict_obj["Targeta Daurada"]=None___user.options["Entrar a l'habitacio custodiada"]=user.options["Entrar a l'habitacio custodiada2"]___user.options["Anar a la porta principal"]=user.options["Anar a la porta principal2"]
+
+Agafar els objectes___user.u_motxilla.AddtoMotxilla(user.u_edifici.e_plantes["Planta 4"].p_portes["Porta - Hab4"].pt_hab.h_dict_obj["Armari"].dict_obj,user)___user.u_edifici.e_plantes["Planta 4"].p_portes["Porta - Hab4"].pt_hab.h_dict_obj["Armari"].retirar_objectes___user.options["Anar a l'armari oxidat"]=user.options["Anar a l'armari oxidat2"]___user.options["Sortir de l'habitacio 4"]=user.options["Sortir de l'habitacio 42"]___user.u_motxilla.m_dict_obj["Llanterna"].utilitzar_piles(user.u_motxilla.m_dict_obj["Pila"])
+
+Buscar per les butxaques del guarda___user.u_edifici.e_plantes["Planta 3"].individu.dict_obj["Targeta Guarda"].agafar_objecte___user.u_motxilla.AddtoMotxilla({user.u_edifici.e_plantes["Planta 3"].individu.dict_obj["Targeta Guarda"].obj_nom:user.u_edifici.e_plantes["Planta 3"].individu.dict_obj["Targeta Guarda"]},user)___user.u_edifici.e_plantes["Planta 3"].individu.dict_obj["Targeta Guarda"]=None___user.options["Buscar per les butxaques del guarda"]=user.options["Buscar per les butxaques del guarda2"]___user.options["Anar a l'habitacio custodiada"]=user.options["Anar a l'habitacio custodiada2"]
+
+Buscar per les butxaques del guarda2___
+
+Baixar les escales___
+
+Saltar pel balco___
+
+Sortir de l'edifici___
+
+TimeOut___

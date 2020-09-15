@@ -1,0 +1,77 @@
+﻿@startuml
+actor Jugador
+boundary Telegram
+control Gestor
+entity User
+entity Timer
+entity Options
+entity Motxilla
+
+group Desplacar-se per l'escenari
+  activate Jugador
+    Jugador -> Telegram : Seleccionar_opcio()
+  activate Telegram
+    Telegram -> Gestor : Realizar_jugada(self,bot,update)
+  activate Gestor
+    Gestor -> Options :  get_texts(ind)
+  activate Options
+    Options -> Gestor : Return(String)
+  deactivate Options
+    Gestor -> Options : get_options(ind)
+  activate Options
+    Options -> Gestor : Return(String)
+  deactivate Options
+    Gestor -> Options : get_realitzar_mod(ind)
+  activate Options
+    Options -> Gestor : Return(String)
+  deactivate Options
+    Gestor -> Timer : RestarSeg()
+  activate Timer
+    Timer -> Gestor : Return(bool)
+  deactivate Timer
+    Gestor -> Telegram : Return(String)
+  deactivate Gestor
+    Telegram -> Jugador : Return(String)
+  deactivate Telegram
+end
+group Consultar temps i motxilla
+    Jugador -> Telegram : Seleccionar_opcio()
+  activate Telegram
+    Telegram -> Gestor : Realizar_jugada(self,bot,update)
+  activate Gestor
+    Gestor -> User : GetMotxilla()
+	activate User
+	User -> Gestor : return(motxilla)
+	deactivate User
+	Gestor -> User : GetTimer()
+	activate User
+	User -> Gestor : return(timer)
+	deactivate User
+    Gestor -> Timer : PrintTime()
+  activate Timer
+    Timer -> Gestor : Return(int)
+  deactivate Timer
+    Gestor -> Motxilla : Printmotxilla()
+  activate Motxilla
+    Motxilla -> Gestor : Return(String)
+  deactivate Motxilla
+    Gestor -> Options : get_texts(ind)
+  activate Options
+    Options -> Gestor : Return(String)
+  deactivate Options
+    Gestor -> Options : get_options(ind)
+  activate Options
+    Options -> Gestor : Return(String)
+  deactivate Options
+    Gestor -> Options : get_realitzar_mod(ind)
+  activate Options
+    Options -> Gestor : Return(String)
+  deactivate Options
+    Gestor -> Telegram : Return(String)
+  deactivate Gestor
+    Telegram -> Jugador : Return(String)
+  deactivate Telegram
+  deactivate Jugador
+end
+
+@enduml

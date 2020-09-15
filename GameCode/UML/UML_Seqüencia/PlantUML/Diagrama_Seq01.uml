@@ -1,0 +1,100 @@
+@startuml
+
+title Comenzar partida
+
+actor Jugador
+boundary Telegram
+control Gestor
+entity Ranking
+entity User
+entity Timer
+entity Edifici
+entity Planta
+entity Porta
+entity Finestra
+entity Habitacio
+entity Option
+entity Motxilla
+entity Objecte
+
+activate Jugador
+Jugador -> Telegram : init(self)
+activate Telegram
+Telegram -> Gestor : start(self,bot,update)
+activate Gestor
+Gestor -> Telegram : return(string)
+deactivate Gestor
+Telegram -> Jugador : return(bool)
+deactivate Telegram
+Jugador -> Telegram : teclat(string)
+activate Telegram
+Telegram -> Gestor : name(self,bot,update)
+activate Gestor
+Gestor -> User : init()
+activate User
+User -> Timer : init()
+activate Timer
+Timer -> User : return(bool)
+deactivate Timer
+
+group Crear Mapa
+
+User -> Edifici : init()
+activate Edifici
+Edifici -> Planta : init()
+activate Planta
+Planta -> Porta : init()
+activate Porta
+Porta -> Finestra : init()
+activate Finestra
+Finestra -> Porta : return(bool)
+deactivate Finestra
+Porta -> Habitacio : init()
+activate Habitacio
+Habitacio -> Objecte : init()
+activate Objecte
+Objecte -> Habitacio : return(bool)
+deactivate Objecte
+Habitacio -> Porta : return(bool)
+deactivate Habitacio
+Porta -> Planta : return(bool)
+deactivate Porta
+Planta -> Edifici : return(bool)
+deactivate Planta
+Edifici -> User : return(bool)
+deactivate Edifici
+
+end
+
+User -> Option : init()
+activate Option 
+Option -> User : return(bool)
+deactivate Option
+User -> Motxilla : init()
+activate Motxilla
+Motxilla -> Objecte : init()
+activate Objecte
+Objecte -> Motxilla : return(bool)
+deactivate Objecte
+Motxilla -> User : return(bool)
+deactivate Motxilla
+User -> Option : get_texts(ind)
+activate Option
+Option -> User : return(string)
+deactivate Option
+User -> Option : get_optionkeyboard(ind)
+activate Option
+Option -> User : return(string)
+deactivate Option
+User -> Option : get_realitzar_mod(ind)
+activate Option
+Option -> User : return(string)
+deactivate Option
+User -> Gestor : return(string)
+deactivate User
+Gestor -> Telegram : return(string)
+deactivate Gestor
+Telegram -> Jugador : return(string)
+deactivate Telegram
+deactivate Jugador
+@enduml

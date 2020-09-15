@@ -1,0 +1,133 @@
+start___Desperta
+
+Desperta___Anar a la porta - Hab1___Anar a la finestra - Hab1
+
+Anar a la porta - Hab1___Anar a la finestra - Hab1
+
+Anar a la finestra - Hab1___Mirar per la finestra___Sortir al balcó___Tornar a l'habitació 1
+
+Mirar per la finestra___Mirar per la finestra___Sortir al balcó___Tornar a l'habitació 1
+
+Sortir al balco___Agafar l'objecte brillant i saltar cap a l'habitació___Saltar pel balcó___Tornar a l'habitació 1
+
+Mirar per la finestra2___Mirar per la finestra___Sortir al balcó___Tornar a l'habitació 1
+
+Sortir al balco2___Saltar pel balcó___Tornar a l'habitació 1
+
+Saltar cap a l'habitacio___Anar a la porta - Hab1___Anar a la finestra - Hab1
+
+Agafar l'objecte brillant i saltar cap a l'habitacio___Anar a la porta - Hab1___Anar a la finestra - Hab1
+
+Anar a la porta - Hab12___Sí, utilitzar la clau
+
+Si, utilitzar la clau___Sortir al passadís Hab1 - Planta 2___Tornar a l'habitació 1
+
+Tornar a l'habitacio 1___Anar a la porta - Hab1___Anar a la finestra - Hab1
+
+Anar a l'habitacio 1___Anar a la porta - Hab1___Anar a la finestra - Hab1
+
+Sortir al passadis Hab1 - Planta 2___Anar a l'habitació 1___Anar a l'habitació 2___Anar a l'ascensor
+
+Sortir al passadis Hab2 - Planta 2___Anar a l'habitació 1___Anar a l'habitació 2___Anar a l'ascensor
+
+Baixar de l'ascensor P2___Anar a l'habitació 1___Anar a l'habitació 2___Anar a l'ascensor
+
+Anar a l'habitacio 2___Apropar-te al llit - Hab2___Apropar-te a la taula - Hab2___Apropar-te a la cadira - Hab2___Sortir al passadis Hab2 - Planta 2
+
+Apropar-te al llit - Hab2___Fer una migdiada___Agafar un peluix aleatori___Apropar-te a la taula - Hab2___Apropar-te a la cadira - Hab2___Sortir al passadis Hab2 - Planta 2
+
+Fer una migdiada___Game Over
+
+Apropar-te a la taula - Hab2___Agafar la llanterna___Apropar-te al llit - Hab2___Apropar-te a la cadira - Hab2___Sortir al passadis Hab2 - Planta 2
+
+Apropar-te a la taula - Hab22___Apropar-te al llit - Hab2___Apropar-te a la cadira - Hab2___Sortir al passadis Hab2 - Planta 2
+
+Apropar-te a la cadira - Hab2___Suicidar-se___Apropar-te a la taula - Hab2___Apropar-te al llit - Hab2___Sortir al passadis Hab2 - Planta 2
+
+Suicidar-se___Game Over
+
+Anar a l'ascensor___Anar a la Planta 1___Anar a la Planta 2___Anar a la Planta 3
+
+Anar a la Planta 1___Baixar de l'ascensor P1___Anar a l'ascensor
+
+Anar a la Planta 2___Baixar de l'ascensor P2___Anar a l'ascensor
+
+Anar a la Planta 3___Baixar de l'ascensor P3___Anar a l'ascensor
+
+Baixar de l'ascensor P1___Anar a l'ascensor___Anar a la recepció___Anar a la porta principal
+
+Baixar de l'ascensor P3___Anar a l'ascensor___Anar a l'habitació custodiada___Apropar-te al vigilant mort
+
+Anar a la porta principal___Anar a l'ascensor___Anar a la recepció
+
+Anar a la porta principal2___Anar a l'ascensor___Anar a la recepció
+
+Anar a la porta principal3___Sortir de l'edifici___Anar a l'ascensor___Anar a la recepció
+
+Anar a la recepcio___Anar a l'ascensor___Anar a la porta principal
+
+Anar a l'habitacio custodiada___Apropar-te al vigilant mort___Anar a l'ascensor
+
+Apropar-te al vigilant mort___Buscar per les butxaques del guarda___Saludar al guarda___Apropar-te a l'habitació custodiada___Anar a l'ascensor
+
+Anar a l'habitacio custodiada2___Entrar a l'habitació custodiada___Apropar-te al vigilant mort___Anar a l'ascensor
+
+Apropar-te al vigilant mort2___Saludar al guarda___Apropar-te a l'habitació custodiada___Anar a l'ascensor
+
+Saludar al guarda___Buscar per les butxaques del guarda___Saludar al guarda___Anar a l'habitació custodiada___Anar a l'ascensor
+
+Entrar a l'habitacio custodiada___Pujar les escales___Agafar la tarja daurada___Sortir de l'habitació custodiada
+
+Entrar a l'habitacio custodiada2___Pujar les escales___Sortir de l'habitació custodiada
+
+Sortir de l'habitacio custodiada___Anar a l'habitació custodiada___Apropar-te al vigilant mort___Anar a l'ascensor
+
+Pujar les escales___Baixar les escales
+
+Pujar les escales2___Utilitzar la llanterna___Baixar les escales
+
+Utilitzar la llanterna___Anar a l'habitació propera a les escales___Baixar les escales
+
+Sortir de l'habitacio 42___Anar a l'habitació del fons___Anar a l'habitació propera a les escales___Baixar les escales
+
+Sortir de l'habitacio 4___Anar a l'habitació propera a les escales___Baixar les escales
+
+Anar a l'habitacio propera a les escales___Anar a l'armari oxidat___Sortir de l'habitació 4
+
+Anar a l'armari oxidat___Agafar els objectes___Sortir de l'habitació 4
+
+Anar a l'armari oxidat2___Sortir de l'habitació 4
+
+Anar a l'habitacio del fons___Anar al CPD___Sortir de l'habitació 5
+
+Anar al CPD___Canviar la font d'alimentació
+
+Anar al CPD2___Sortir de l'habitació 5
+
+Canviar la font d'alimentacio___Hackejar
+
+Hackejar___Utilitzar material 3D
+
+Utilitzar material 3D___Sortir de l'habitació 5
+
+Sortir de l'habitacio 5___Anar a l'habitació del fons___Anar a l'habitació propera a les escales___Baixar les escales
+
+Agafar un peluix aleatori___Fer la migdiada___Apropar-te a la taula - Hab2___Apropar-te a la cadira - Hab2___Sortir al passadis Hab2 - Planta 2
+
+Agafar la llanterna___Apropar-te al llit - Hab2___Apropar-te a la cadira - Hab2___Sortir al passadis Hab2 - Planta 2
+
+Agafar la tarja daurada___Pujar les escales___Sortir de l'habitació custodiada
+
+Agafar els objectes___Sortir de l'habitació 4
+
+Buscar per les butxaques del guarda___Saludar al guarda___Anar a l'habitació custodiada___Anar a l'ascensor
+
+Buscar per les butxaques del guarda2___Saludar al guarda___Anar a l'habitació custodiada___Anar a l'ascensor
+
+Baixar les escales___Pujar les escales___Sortir de l'habitació custodiada
+
+Saltar pel balco___Game Over
+
+Sortir de l'edifici___End Game
+
+TimeOut___Game Over

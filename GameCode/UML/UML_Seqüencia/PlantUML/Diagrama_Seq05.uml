@@ -1,0 +1,41 @@
+﻿@startuml
+actor Jugador
+boundary Telegram
+control Gestor
+entity User
+entity Timer
+entity Options
+
+group Morir-Desplacar-se per l'escenari
+  activate Jugador
+    Jugador -> Telegram : Seleccionar_opcio()
+  activate Telegram
+    Telegram -> Gestor : Realitzar_jugada(self,bot,update)
+  activate Gestor
+  ref over Gestor: Desplacar-se per l'escenari()
+    Gestor -> Timer : RestarSeg()
+  activate Timer
+    Timer -> Gestor : return(bool)
+deactivate Timer
+group Perdre Partida
+    Gestor -> Options : get_texts(ind)
+  activate Options
+    Options -> Gestor : Return(String)
+  deactivate Options
+    Gestor -> Options : get_options(ind)
+  activate Options
+    Options -> Gestor : Return(String)
+  deactivate Options
+    Gestor -> Options : get_realitzar_mod(ind)
+  activate Options
+    Options -> Gestor : Return(String)
+  deactivate Options
+  end
+    Gestor -> Telegram : Return(String)
+  deactivate Gestor
+    Telegram -> Jugador : Return(String)
+  deactivate Telegram
+  deactivate Jugador
+end
+
+@enduml

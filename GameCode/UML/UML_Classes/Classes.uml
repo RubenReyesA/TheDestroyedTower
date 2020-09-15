@@ -1,0 +1,245 @@
+﻿@startuml
+
+
+namespace Gestor{
+
+  Gestor "1" *-- "1" Ranking
+  Gestor "1" *-- "0..*" Partida_user.User
+
+  class Ranking{
+    +String r_Nom
+    +Dict r_Ranking
+    +def __init__(self)
+    +def ReadTXT (self)
+    +def WriteTXT (self)
+    +def FiveFirstRanking () return String
+    +def printRanking () return String
+    +def AddtoRanking(user)
+  }
+
+  class Gestor{
+    +String g_Nom
+    +Dict g_Users
+    +Ranking g_rank
+    +def __init__(self)
+    +def start(self, bot, update)
+    +def name (self, bot, update)
+    +def realitzar_jugada(self, bot, update)
+  }
+
+}
+
+namespace Partida_user{
+  Motxilla "1" o--> "0..*" Objecte
+  Planta "1" *--> "1..*" Porta
+  Habitacio "1" *--> "1..*" Porta
+  Edifici "1" *--> "1..*" Planta
+  User "1" *--> "1..*" Option
+  User "1" --> "1" Motxilla
+  User "1" --> "1" Timer
+  User "1" --> "1" Edifici
+  Habitacio "1" *--> "1" Finestra
+  Finestra "1" *--> "1" Porta
+  Finestra "1" *--> "1" TargetaClau
+  Habitacio "1" o--> "0..*" Objecte
+  Llanterna "1" *--> "0..1" Pila
+  Taula "1" *--> "0..1" Llanterna
+  Llit "1" *--> "0..1" Peluix
+  Cadira "1" *--> "0..1" Soga
+  Impressora3Di "1" *--> "0..1" Material3Di
+  Individu "1" *--> "0..1" TargetaClau
+  TargetaClau "1" --> "1" Porta
+
+
+
+  class Option{
+    +String o_Nom
+    +list[String] o_texts
+    +list[String] o_optionkeyboard
+    +list[String] o_realitzar_modf
+    +int time;
+    +def __init__ (self)
+    +def realitzar_modificacions(self, user)
+    +def get_texts(ind)
+    +def get_OptionKeyboard(ind)
+    +def get_realitzar_mod(ind)
+
+
+  }
+
+  class Motxilla{
+    +String m_Nom
+    +Dict [Objecte] m_Objectes
+    +def __init__(self)
+    +def AddtoMotxilla (dict obj)
+    +def PrintMotxilla () : return String
+  }
+
+
+  class Habitacio{
+    +String h_Nom
+    +Porta h_porta
+    +Finestra h_finestra
+    +Dict [Objecte] h_Objectes
+    +def __init__(self)
+    +def SubObjecte(obj)
+  }
+
+  class Finestra{
+    +String f_nom
+    +TargetaClau f_targetaclau
+    +def _init_ (self)
+  }
+
+  class Porta{
+    +String pt_name
+    +bool pt_oberta
+    +Habitacio1 pt_hab1
+    +Habitacio2 pt_hab2
+    +def _init_ (self)
+    +def obrir_porta(self)
+    +def tancar_porta(self)
+    +def set_hab(self, h1, h2)
+  }
+
+  class Planta{
+    +String p_Nom
+    +Dict [Porta] p_portes
+    +bool ascensor_disponible
+    +bool escales_trobades
+    +Individu indv
+    +def __init__(self)
+    +def init_portes(self, p_portes)
+    +def activar_ascensor(self)
+    +def desactivar_ascensor(self)
+    +def marcar_escales_trobades(self)
+  }
+
+  class Edifici{
+    +String e_Nom
+    +Dict [Planta] e_plantes
+    +def __init__(self)
+    +def _init_map(self, e_plantes)
+  }
+
+  note top of Timer : import datetime\na=str(datetime.timedelta(seconds=xxxx))\nb=a[2:]
+  class Timer{
+    +String t_Nom
+    +int t_time
+    +def __init__(self)
+    +def Add_Seg (int s)
+    +def Restar_Seg (int s) return int
+    +def PrintTime () return String
+  }
+
+  class User{
+    +String u_Nom
+    +int u_ChatID
+    +Timer u_timer
+    +Edifici u_edifici
+    +Motxilla u_motxilla
+    +dict [Option] u_options
+    +def __init__(self)
+    +def init_options(self, u_Options)
+    +def GetMotxilla()
+    +def GetTimer()
+  }
+
+  Objecte <|-- Contenidor
+  Objecte <|-- Contingut
+
+  abstract class Objecte{
+    +String obj_Nom
+    +def _init (self)
+  }
+
+  abstract class Contenidor{
+    +dict obj
+  }
+
+  abstract class Contingut{
+    +bool agafat
+    +def agafar_objecte(self)
+  }
+
+  Contenidor <|-- Llanterna
+  Contenidor <|-- Armari
+  Contenidor <|-- Taula
+  Contenidor <|-- Llit
+  Contenidor <|-- Cadira
+  Contenidor <|-- Impressora3Di
+  Contenidor <|-- CPD
+  Contenidor <|-- Individu
+  Armari o--> Objecte
+
+  class Llanterna{
+    +bool obj_agafat
+    +bool on
+    +Pila pl
+    +def agafar_llanterna(self)
+    +def utilitzar_piles(self,pila)
+  }
+  class Armari{
+    +dict[Objecte] a_objectes
+    +bool Est_porta
+    +def __init__(self)
+    +def retirar_objectes(self)
+    +def obrir_porta(self)
+  }
+  class Taula{
+    +Llanterna lt
+  }
+  class Llit{
+    +Peluix px
+  }
+  class Cadira{
+    +Soga sg
+  }
+  class Impressora3Di{
+    +Material3Di M3d
+    +bool impressora_carregada
+    +def carregar_impressora(self)
+    +def imprimir_tarja_mestra(self)
+  }
+  class CPD{
+    +FontAlimentacio ft
+    +bool canvi_font
+    +def canviar_font(self)
+  }
+  class Individu{
+    +TargetaClau tc
+  }
+
+  Contingut <|-- Pila
+  Contingut <|-- Peluix
+  Contingut <|-- Soga
+  Contingut <|-- Material3Di
+  Contingut <|-- TargetaClau
+  Contingut <|-- FontAlimentacio
+  Contingut <|-- Tigreton
+  Contingut <|-- Beer
+
+
+  class Pila{
+  }
+  class Peluix{
+  }
+  class Soga{
+  }
+  class Material3Di{
+  }
+  class TargetaClau{
+  }
+  class FontAlimentacio{
+  }
+  class Tigreton{
+
+  }
+  class Beer{
+
+  }
+
+
+}
+
+@enduml
